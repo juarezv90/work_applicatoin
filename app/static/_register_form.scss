@@ -1,0 +1,26 @@
+.register_user {
+    margin-top: 1rem;
+    
+    h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    form {
+        display: grid;
+        width: fit-content;
+        gap: 1rem;
+        border: 1px solid black;
+        padding: 1rem;
+        
+        input {
+            padding: 8px 1rem;
+            margin-top: 4px;
+        }
+
+        input#submit {
+            font-size: 1rem;
+        }
+    }
+}

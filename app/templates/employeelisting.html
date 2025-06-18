@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+<div class="employee_grid">
+  <div class="grid_header">
+    <span>Employee</span>
+    <span>Date Hired</span>
+    <span>Worksite</span>
+  </div>
+  {% for employee in employees %}
+  <div class="employee">
+    <span style="text-transform: capitalize">
+      {{ employee.first_name }} {{ employee.last_name }}
+    </span>
+    <span>{{ employee.date_of_hire.strftime('%m/%d/%Y') }}</span>
+    <span>{{ locations[employee.location_id].location }}</span>
+    {% if employee.emp_active %}
+    <span class="active">active</span>
+    {% else %}
+    <span class="inactive">inactive</span>
+    {% endif %}
+    <span>
+      <a href="{{ url_for('record_late', emp_id=employee.id) }}"
+        >Record Issue</a
+      >
+    </span>
+    <span>
+      <a href="{{ url_for('term_employee', emp_id=employee.id ) }}"
+        >Terminate</a
+      >
+    </span>
+    <span>
+      <a href="{{ url_for('worker_record', emp_id=employee.id ) }}">Record</a>
+    </span>
+  </div>
+  {% endfor %}
+  <p class="emp_add_link">
+    <a href="{{ url_for('add_employee' ) }}">Add new Employee</a>
+  </p>
+</div>
+{% endblock %}

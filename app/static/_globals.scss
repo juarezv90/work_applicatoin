@@ -1,0 +1,63 @@
+//global styles start
+body {
+  padding: 1rem 2rem;
+  font-family: "Poppins", sans-serif;
+}
+a,
+a:active,
+a:visited,
+a:focus {
+  color: black;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: 600;
+
+  &:hover {
+    color: blue;
+  }
+}
+
+#nav_bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .username {
+    display: inline;
+    text-transform: capitalize;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-right: auto;
+  }
+
+  nav {
+    display: inline;
+    width: fit-content;
+  }
+}
+
+.messages {
+  width: fit-content;
+  margin: 0 auto;
+  color: red;
+}
+//end of globals
+
+//employee listing page
+
+//end of employee listing
+
+//print media controls
+
+@media print {
+  #nav_bar {
+    display: none;
+  }
+  hr {
+    display: none;
+  }
+  p.emp_add_link {
+    display: none;
+  }
+}
+
+//end print media controls

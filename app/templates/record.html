@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<div class="report">
+  <h2 class="emp_name">{{ employee.first_name }}</h2>
+  <span class="headers">Issue:</span>
+  <span class="headers">Reason:</span>
+  <span class="headers">Date of Issue:</span>
+  {% if reports %} {% for report in reports %}
+  <span>{{ report.issue }}</span>
+  <span>{{ report.reason }}</span>
+  <span>{{ report.date_of.strftime('%m/%d/%Y') }}</span>
+  {% endfor %}
+  {% else %}
+  <p>No Reports Recordsed</p>
+  {% endif %}
+  
+  <a href="{{ url_for('employee_listing' ) }}" class="return_link">Return</a>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+.write_up {
+  width: 75%;
+  margin: 4rem auto;
+
+  h2 {
+    font-size: 24px;
+  }
+
+  form {
+    display: grid;
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    background-color: lightgray;
+    border: 1px solid darkgrey;
+    gap: 16px;
+
+    p {
+      width: 80%;
+      margin: 0 auto;
+      padding: 1rem;
+      label {
+        font-size: 1.25rem;
+      }
+    }
+
+    textarea {
+      height: 10rem;
+      width: 100%;
+      max-width: 100%;
+      resize: none;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-top: .5rem;
+    }
+
+    .date {
+      font-size: 16px;
+      padding: 4px;
+    }
+
+    input#submit {
+      font-size: 1.3rem;
+      padding: 6px 16px;
+      cursor: pointer;
+    }
+  }
+}

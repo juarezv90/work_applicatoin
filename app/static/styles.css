@@ -1,0 +1,291 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  padding: 1rem 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+a,
+a:active,
+a:visited,
+a:focus {
+  color: black;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: 600;
+}
+a:hover,
+a:active:hover,
+a:visited:hover,
+a:focus:hover {
+  color: blue;
+}
+
+#nav_bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+#nav_bar .username {
+  display: inline;
+  text-transform: capitalize;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-right: auto;
+}
+#nav_bar nav {
+  display: inline;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.messages {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  color: red;
+}
+
+@media print {
+  #nav_bar {
+    display: none;
+  }
+  hr {
+    display: none;
+  }
+  p.emp_add_link {
+    display: none;
+  }
+}
+.employee_grid {
+  display: grid;
+  width: 100%;
+  gap: 8px;
+}
+.employee_grid .grid_header,
+.employee_grid .employee {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(7, 1fr);
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+}
+.employee_grid .grid_header:not(.grid_header),
+.employee_grid .employee:not(.grid_header) {
+  padding: 0.5rem;
+}
+.employee_grid .grid_header:hover:not(.grid_header),
+.employee_grid .employee:hover:not(.grid_header) {
+  background-color: lightgray;
+}
+.employee_grid .grid_header {
+  border-bottom: 2px solid black;
+  padding-bottom: 8px;
+}
+.employee_grid .active,
+.employee_grid .inactive {
+  text-transform: capitalize;
+  padding: 2px 6px;
+  font-weight: 700;
+  text-align: center;
+}
+.employee_grid .active {
+  color: green;
+  background-color: lightgreen;
+}
+.employee_grid .inactive {
+  color: red;
+  background-color: lightpink;
+}
+@media screen and (max-width: 600px) {
+  .employee_grid .grid_header span:nth-child(3) {
+    display: none;
+  }
+  .employee_grid .employee span:nth-child(3), .employee_grid .employee span:nth-child(4) {
+    display: none;
+  }
+}
+
+.login_module {
+  width: 35%;
+  min-width: 380px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 8rem auto;
+  background-color: lightgray;
+  border: 1px solid darkgrey;
+  padding: 3rem 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.login_module h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.login_module .login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.login_module .login_form input:not(.checkbox) {
+  width: 200px;
+  font-size: 1rem;
+  padding: 4px 10px;
+  margin-top: 0.5rem;
+}
+
+.report {
+  width: 85%;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  font-size: 18px;
+}
+.report h2.emp_name {
+  font-size: 30px;
+  grid-column: 1/span 3;
+  font-weight: 900;
+}
+.report .headers {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 600px) {
+  .report {
+    font-size: 14px;
+  }
+  .report .headers {
+    font-size: 16px;
+  }
+}
+.report .return_link {
+  grid-column: 1/span 3;
+}
+
+.write_up {
+  width: 75%;
+  margin: 4rem auto;
+}
+.write_up h2 {
+  font-size: 24px;
+}
+.write_up form {
+  display: grid;
+  width: 100%;
+  padding: 1rem 0;
+  margin-top: 1rem;
+  background-color: lightgray;
+  border: 1px solid darkgrey;
+  gap: 16px;
+}
+.write_up form p {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.write_up form p label {
+  font-size: 1.25rem;
+}
+.write_up form textarea {
+  height: 10rem;
+  width: 100%;
+  max-width: 100%;
+  resize: none;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+}
+.write_up form .date {
+  font-size: 16px;
+  padding: 4px;
+}
+.write_up form input#submit {
+  font-size: 1.3rem;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.register_user {
+  margin-top: 1rem;
+}
+.register_user h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.register_user form {
+  display: grid;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+}
+.register_user form input {
+  padding: 8px 1rem;
+  margin-top: 4px;
+}
+.register_user form input#submit {
+  font-size: 1rem;
+}/*# sourceMappingURL=styles.css.map */

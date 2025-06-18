@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+<div class="write_up">
+  <h2>Write up: {{ employee.first_name + " " + employee.last_name }} </h2>
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+
+    <p>
+      {{ form.issue.label }} <br />
+      {{ form.issue(size=32) }} <br />
+      {% for error in form.issue.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>
+      {{ form.reason.label }} <br />
+      {{ form.reason(size=32) }} <br />
+      {% for error in form.reason.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>
+      {{ form.date_of.label }} <br />
+      {{ form.date_of(class="date") }}
+    </p>
+    <p>{{ form.submit() }}</p>
+  </form>
+</div>
+
+{% endblock %}
