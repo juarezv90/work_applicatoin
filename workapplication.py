@@ -3,9 +3,11 @@ from flaskwebgui import FlaskUI
 import os
 from pathlib import Path
 
+base = os.path.abspath(os.path.dirname(__file__))
+
 def initialize_database():
     with app.app_context():
-        db_dir = Path(os.getenv('APPDATA'))/'workapp'
+        db_dir = Path(base)/'workapp'
         db_dir.mkdir(parents=True, exist_ok=True)
         
         db.create_all()
