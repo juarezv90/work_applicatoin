@@ -10,10 +10,10 @@ a:focus {
   color: black;
   text-decoration: none;
   margin-right: 1rem;
-  font-weight: 600;
+  font-weight: 500;
 
   &:hover {
-    color: blue;
+    color: darkgrey;
   }
 }
 
@@ -21,6 +21,7 @@ a:focus {
   width: 100%;
   display: flex;
   align-items: center;
+
   .username {
     display: inline;
     text-transform: capitalize;
@@ -32,6 +33,11 @@ a:focus {
   nav {
     display: inline;
     width: fit-content;
+
+    @media screen and (max-width:600px) {
+      display: grid;
+      gap: .25rem;
+    }
   }
 }
 

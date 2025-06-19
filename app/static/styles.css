@@ -68,13 +68,13 @@ a:focus {
   color: black;
   text-decoration: none;
   margin-right: 1rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 a:hover,
 a:active:hover,
 a:visited:hover,
 a:focus:hover {
-  color: blue;
+  color: darkgrey;
 }
 
 #nav_bar {
@@ -93,6 +93,12 @@ a:focus:hover {
   display: inline;
   width: -moz-fit-content;
   width: fit-content;
+}
+@media screen and (max-width: 600px) {
+  #nav_bar nav {
+    display: grid;
+    gap: 0.25rem;
+  }
 }
 
 .messages {
@@ -125,6 +131,7 @@ a:focus:hover {
   grid-template-columns: repeat(7, 1fr);
   -moz-column-gap: 8px;
        column-gap: 8px;
+  cursor: pointer;
 }
 .employee_grid .grid_header:not(.grid_header),
 .employee_grid .employee:not(.grid_header) {
@@ -134,16 +141,24 @@ a:focus:hover {
 .employee_grid .employee:hover:not(.grid_header) {
   background-color: lightgray;
 }
+.employee_grid .grid_header span,
+.employee_grid .employee span {
+  display: grid;
+  align-items: center;
+  justify-content: start;
+}
 .employee_grid .grid_header {
   border-bottom: 2px solid black;
   padding-bottom: 8px;
 }
 .employee_grid .active,
 .employee_grid .inactive {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   text-transform: capitalize;
   padding: 2px 6px;
-  font-weight: 700;
-  text-align: center;
+  font-weight: 500;
 }
 .employee_grid .active {
   color: green;
@@ -154,10 +169,15 @@ a:focus:hover {
   background-color: lightpink;
 }
 @media screen and (max-width: 600px) {
-  .employee_grid .grid_header span:nth-child(3) {
+  .employee_grid .grid_header {
     display: none;
   }
-  .employee_grid .employee span:nth-child(3), .employee_grid .employee span:nth-child(4) {
+  .employee_grid .employee {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
+  }
+  .employee_grid .employee .active, .employee_grid .employee .inactive {
     display: none;
   }
 }
@@ -205,9 +225,16 @@ a:focus:hover {
 .report h2.emp_name {
   font-size: 30px;
   grid-column: 1/span 3;
-  font-weight: 900;
+  font-weight: 700;
 }
 .report .headers {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.report .rec_links {
+  display: flex;
+}
+.report .no_reps {
   font-size: 1.25rem;
   font-weight: 600;
 }
@@ -217,6 +244,9 @@ a:focus:hover {
   }
   .report .headers {
     font-size: 16px;
+  }
+  .report .no_reps {
+    grid-column: 1/span 3;
   }
 }
 .report .return_link {
@@ -288,4 +318,33 @@ a:focus:hover {
 }
 .register_user form input#submit {
   font-size: 1rem;
+}
+
+.add_emp {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+.add_emp h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.add_emp form {
+  display: grid;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 0.5rem;
+  gap: 1rem;
+  border: 1px solid darkgrey;
+  background-color: lightgrey;
+  padding: 1.5rem 1rem;
+}
+.add_emp form input {
+  padding: 8px;
+}
+.add_emp form select,
+.add_emp form option {
+  height: 1.5rem;
+  width: 100%;
+  padding: 0 8px;
 }/*# sourceMappingURL=styles.css.map */

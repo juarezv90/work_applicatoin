@@ -11,13 +11,21 @@
     h2.emp_name {
         font-size: 30px;
         grid-column: 1/ span 3;
-        font-weight: 900;
+        font-weight: 700;
     }
     
     .headers {
         font-size: 1.25rem;
         font-weight: 600;
-        
+    }
+
+    .rec_links {
+        display: flex;
+    }
+
+    .no_reps {
+        font-size: 1.25rem;
+        font-weight: 600;
     }
 
     @media screen and (max-width:600px) {
@@ -25,6 +33,10 @@
         
         .headers {
             font-size: 16px;
+        }
+
+        .no_reps {
+            grid-column: 1/ span 3;
         }
     }
     

@@ -1,0 +1,30 @@
+.add_emp {
+    width: fit-content;
+    margin: 0 auto;
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  form {
+    display: grid;
+    width: fit-content;
+    margin-top: .5rem;
+    gap: 1rem;
+    border: 1px solid darkgrey;
+    background-color: lightgrey;
+    padding: 1.5rem 1rem;
+
+
+    input {
+      padding: 8px;
+    }
+
+    select,
+    option {
+      height: 1.5rem;
+      width: 100%;
+      padding: 0 8px;
+    }
+  }
+}

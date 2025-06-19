@@ -1,11 +1,22 @@
 import sqlalchemy as sa
 from datetime import date
-from flask import render_template,flash,redirect, url_for, request
+from flask import render_template,flash,redirect, url_for, request,abort
 from app import app,db
 from app.models import User, Employee, IssueReport, Location
 from app.forms import LoginForm, RegistrationForm, ReportIssueForm, AddEmployeeForm
 from flask_login import current_user, login_user, logout_user, login_required
 from urllib.parse import urlsplit
+from functools import wraps
+
+def role_required(role_name):
+    def decorator(f):
+        @wraps(f)
+        def decorated_functions(*args, **kwargs):
+            if not current_user.is_authenticated or not current_user.has_role(role_name):
+                return redirect(url_for('login'))
+            return f(*args,**kwargs)
+        return decorated_functions
+    return decorator
 
 
 @app.route('/')
@@ -37,9 +48,8 @@ def logout():
     return redirect(url_for('index'))
 
 @app.route('/register', methods=['GET','POST'])
+@role_required('admin')
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
@@ -51,7 +61,7 @@ def register():
     return render_template('register.html', title='Register User', form=form)
 
 @app.route('/late_reporter/<emp_id>', methods=['GET','POST'])
-# @login_required
+@role_required('admin')
 def record_late(emp_id):
     form = ReportIssueForm()
     employee = db.session.scalar(sa.select(Employee).where(Employee.id == emp_id))
@@ -65,7 +75,7 @@ def record_late(emp_id):
     return render_template('recordlate.html', title='Late Record', form=form, employee=employee)
 
 @app.route('/employees')
-# @login_required
+@role_required('admin')
 def employee_listing():
     employees = Employee.query.all()
     locations = db.session.scalars(sa.select(Location)).all()
@@ -75,7 +85,7 @@ def employee_listing():
     return render_template('employeelisting.html', title='Employees', employees=employees, locations=locations)
 
 @app.route('/addemployee', methods=['GET','POST'])
-# @login_required
+@role_required('admin')
 def add_employee():
     form = AddEmployeeForm()
     if form.validate_on_submit():
@@ -86,7 +96,7 @@ def add_employee():
     return render_template('addemployee.html', title='Add Employee', form=form)
 
 @app.route('/terminate_employee/<emp_id>', methods=['GET','POST'])
-#@login_required
+@role_required('admin')
 def term_employee(emp_id):
     term_employee = Employee.query.get(emp_id)
     term_employee.date_of_term = date.today()
@@ -95,7 +105,7 @@ def term_employee(emp_id):
     return redirect(url_for('employee_listing'))
 
 @app.route('/worker_record/<emp_id>')
-# @login_required
+@role_required('admin')
 def worker_record(emp_id):
     employee = Employee.query.get(emp_id)
     reports = IssueReport.query.where(IssueReport.emp_id == emp_id).all()

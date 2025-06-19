@@ -13,7 +13,7 @@ class User(UserMixin, db.Model):
     email: so.Mapped[str] = so.mapped_column(sa.String(128),index=True, unique=True)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     attendances: so.WriteOnlyMapped['IssueReport'] = so.relationship(back_populates='user')
-
+    role: so.Mapped[Optional[str]] = so.mapped_column(sa.String(20), default='admin')
     def __repr__(self):
         return '<User {}>'.format(self.username)
     
@@ -22,6 +22,9 @@ class User(UserMixin, db.Model):
     
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+    
+    def has_role(self, role):
+        return self.role == role
 
 class Location(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)

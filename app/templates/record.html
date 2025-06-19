@@ -8,11 +8,12 @@
   <span>{{ report.issue }}</span>
   <span>{{ report.reason }}</span>
   <span>{{ report.date_of.strftime('%m/%d/%Y') }}</span>
-  {% endfor %}
-  {% else %}
-  <p>No Reports Recordsed</p>
+  {% endfor %} {% else %}
+  <p class="no_reps">No Reports Recorded</p>
   {% endif %}
-  
-  <a href="{{ url_for('employee_listing' ) }}" class="return_link">Return</a>
+  <div class="rec_links">
+    <a href="{{ url_for('record_late', emp_id=employee.id) }}">Record Issue</a>
+    <a href="{{ url_for('employee_listing' ) }}" class="return_link">Return</a>
+  </div>
 </div>
 {% endblock %}

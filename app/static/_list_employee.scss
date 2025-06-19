@@ -9,6 +9,7 @@
     width: 100%;
     grid-template-columns: repeat(7, 1fr);
     column-gap: 8px;
+    cursor: pointer;
 
     &:not(.grid_header) {
       padding: 0.5rem;
@@ -16,6 +17,12 @@
 
     &:hover:not(.grid_header) {
       background-color: lightgray;
+    }
+
+    span {
+      display: grid;
+      align-items: center;
+      justify-content: start;
     }
   }
 
@@ -26,10 +33,12 @@
 
   .active,
   .inactive {
+    display: grid;
+    justify-content: center;
+    align-items: center;
     text-transform: capitalize;
     padding: 2px 6px;
-    font-weight: 700;
-    text-align: center;
+    font-weight: 500;
   }
   .active {
     color: green;
@@ -42,14 +51,19 @@
   }
 
   @media screen and (max-width: 600px) {
-    .grid_header span:nth-child(3){
-        display:none;
+    .grid_header {
+      display: none;
     }
 
-    .employee span{
-      &:nth-child(3), &:nth-child(4) {
+    .employee {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .25rem;
+
+      .active, .inactive {
         display: none;
       }
     }
+    
   }
 }
