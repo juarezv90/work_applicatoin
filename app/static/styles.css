@@ -128,7 +128,7 @@ a:focus:hover {
 .employee_grid .employee {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   -moz-column-gap: 8px;
        column-gap: 8px;
   cursor: pointer;
@@ -168,6 +168,9 @@ a:focus:hover {
   color: red;
   background-color: lightpink;
 }
+.employee_grid a {
+  font-weight: 700;
+}
 @media screen and (max-width: 600px) {
   .employee_grid .grid_header {
     display: none;
@@ -175,10 +178,7 @@ a:focus:hover {
   .employee_grid .employee {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.25rem;
-  }
-  .employee_grid .employee .active, .employee_grid .employee .inactive {
-    display: none;
+    gap: 0.5rem;
   }
 }
 
@@ -216,7 +216,7 @@ a:focus:hover {
   width: 85%;
   margin: 3rem auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   border: 1px solid lightgray;
   padding: 1rem;
@@ -224,7 +224,7 @@ a:focus:hover {
 }
 .report h2.emp_name {
   font-size: 30px;
-  grid-column: 1/span 3;
+  grid-column: 1/span 4;
   font-weight: 700;
 }
 .report .headers {
@@ -233,10 +233,15 @@ a:focus:hover {
 }
 .report .rec_links {
   display: flex;
+  grid-column: 1/span 4;
+  padding: 0.5rem 0;
 }
 .report .no_reps {
   font-size: 1.25rem;
   font-weight: 600;
+}
+.report .no_reps {
+  grid-column: 1/span 4;
 }
 @media screen and (max-width: 600px) {
   .report {
@@ -244,9 +249,6 @@ a:focus:hover {
   }
   .report .headers {
     font-size: 16px;
-  }
-  .report .no_reps {
-    grid-column: 1/span 3;
   }
 }
 .report .return_link {

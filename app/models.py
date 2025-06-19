@@ -11,6 +11,8 @@ class User(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     username: so.Mapped[str] = so.mapped_column(sa.String(64),index=True, unique=True)
     email: so.Mapped[str] = so.mapped_column(sa.String(128),index=True, unique=True)
+    first_name: so.Mapped[str] = so.mapped_column(sa.String(30), index=True)
+    last_name: so.Mapped[str] = so.mapped_column(sa.String(30), index=True)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     attendances: so.WriteOnlyMapped['IssueReport'] = so.relationship(back_populates='user')
     role: so.Mapped[Optional[str]] = so.mapped_column(sa.String(20), default='admin')

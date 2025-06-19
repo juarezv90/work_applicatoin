@@ -52,7 +52,7 @@ def logout():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
+        user = User(username=form.username.data, email=form.email.data, first_name=form.f_name.data, last_name=form.l_name.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -109,4 +109,5 @@ def term_employee(emp_id):
 def worker_record(emp_id):
     employee = Employee.query.get(emp_id)
     reports = IssueReport.query.where(IssueReport.emp_id == emp_id).all()
-    return render_template('record.html', title=f"{employee.first_name}", employee=employee, reports=reports)
+    users = User.query.all()
+    return render_template('record.html', title=f"{employee.first_name}", employee=employee, reports=reports, users=users)

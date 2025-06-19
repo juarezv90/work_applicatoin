@@ -20,4 +20,4 @@ ui = FlaskUI(app=app,
 
 if __name__ == "__main__":
     initialize_database()
-    ui.run()
+    app.run()

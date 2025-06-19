@@ -2,7 +2,7 @@
     width:85%;
     margin: 3rem auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     border: 1px solid lightgray;
     padding: 1rem;
@@ -10,7 +10,7 @@
 
     h2.emp_name {
         font-size: 30px;
-        grid-column: 1/ span 3;
+        grid-column: 1/ span 4;
         font-weight: 700;
     }
     
@@ -21,13 +21,18 @@
 
     .rec_links {
         display: flex;
+        grid-column: 1 / span 4;
+        padding: .5rem 0;
     }
 
     .no_reps {
         font-size: 1.25rem;
         font-weight: 600;
     }
-
+    
+    .no_reps {
+        grid-column: 1/ span 4;
+    }
     @media screen and (max-width:600px) {
         font-size: 14px;
         
@@ -35,9 +40,6 @@
             font-size: 16px;
         }
 
-        .no_reps {
-            grid-column: 1/ span 3;
-        }
     }
     
     .return_link {
