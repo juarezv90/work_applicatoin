@@ -3,7 +3,7 @@ from datetime import date
 from flask import render_template,flash,redirect, url_for, request,abort
 from app import app,db
 from app.models import User, Employee, IssueReport, Location
-from app.forms import LoginForm, RegistrationForm, ReportIssueForm, AddEmployeeForm
+from app.forms import LoginForm, RegistrationForm, ReportIssueForm, AddEmployeeForm, ResetPass
 from flask_login import current_user, login_user, logout_user, login_required
 from urllib.parse import urlsplit
 from functools import wraps
@@ -79,9 +79,6 @@ def record_late(emp_id):
 def employee_listing():
     employees = Employee.query.all()
     locations = db.session.scalars(sa.select(Location)).all()
-    print(locations)
-    for e in employees:
-        print(e)
     return render_template('employeelisting.html', title='Employees', employees=employees, locations=locations)
 
 @app.route('/addemployee', methods=['GET','POST'])
@@ -94,6 +91,32 @@ def add_employee():
         db.session.commit()
         return redirect(url_for('employee_listing'))
     return render_template('addemployee.html', title='Add Employee', form=form)
+
+@app.route('/passreset/<userid>', methods=['GET','POST'])
+@role_required('admin')
+def reset_pass(userid):
+    u = User.query.filter_by(id=userid).first()
+    if not u:
+        flash('User not found')
+        return redirect(url_for('login'))
+    
+    pass_form = ResetPass()
+
+    if pass_form.validate_on_submit():
+        if not u.check_password(pass_form.old_pass.data):
+            flash('Current password is incorrect')
+            return render_template('reset_pass.html',title='Reset Password', pass_form=pass_form)
+        if pass_form.old_pass.data == pass_form.password.data:
+            flash('New password must be different from current password')
+            return render_template('reset_pass.html',title='Reset Password', pass_form=pass_form)
+        
+        u.set_password(pass_form.password.data)
+        db.session.commit()
+        flash('Password updated successfully')
+        return redirect(url_for('index'))
+
+
+    return render_template('reset_pass.html',title='Reset Password', pass_form=pass_form)
 
 @app.route('/terminate_employee/<emp_id>', methods=['GET','POST'])
 @role_required('admin')

@@ -46,3 +46,9 @@ class ReportIssueForm(FlaskForm):
     reason = TextAreaField('Violation Reason', validators=[DataRequired()])
     date_of = DateField('Date of Issue', validators=[DataRequired()])
     submit = SubmitField('Record')
+
+class ResetPass(FlaskForm):
+    old_pass = PasswordField('Current Password', validators=[DataRequired()])
+    password = PasswordField('New Password', validators=[DataRequired()])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(),EqualTo('password')])
+    submit = SubmitField('Change Password')

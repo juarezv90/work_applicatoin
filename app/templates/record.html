@@ -18,7 +18,7 @@
   {% endif %}
   <div class="rec_links">
     <a href="{{ url_for('record_late', emp_id=employee.id) }}">Record Issue</a>
-    {% if employee.emp_active == 'False' %}
+    {% if employee.emp_active == 1 %}
     <a href="{{ url_for('term_employee', emp_id=employee.id ) }}">Terminate</a>
     {% endif %}
     <a href="{{ url_for('employee_listing' ) }}" class="return_link">Return</a>

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="reset_pass">
+        <h2>Reset Password</h2>
+        <form action="" method="post">
+            {{ pass_form.hidden_tag() }}
+            <p>
+                {{ pass_form.old_pass.label }}
+                {{ pass_form.old_pass(size=32) }}
+                {% for error in pass_form.old_pass.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ pass_form.password.label }}
+                {{ pass_form.password(size=32) }}
+                {% for error in pass_form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </p>
+             <p>
+                {{ pass_form.password2.label }}
+                {{ pass_form.password2(size=32) }}
+                {% for error in pass_form.password2.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ pass_form.submit() }}
+            </p>
+        </form>
+    </div>
+{% endblock %}
