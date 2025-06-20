@@ -1,0 +1,34 @@
+.reset_pass {
+    margin: 2rem auto;
+    width: fit-content;
+
+    h2{
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-decoration: underline;
+    }
+
+    form {
+        display: grid;
+        padding: 1rem;
+        gap: 1rem;
+        background-color: lightgrey;
+
+        p {
+            display: grid;
+
+            label {
+                font-weight: 600;
+            }
+
+            input {
+                padding:8px;
+
+                &#submit {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+}

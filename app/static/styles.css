@@ -81,6 +81,7 @@ a:focus:hover {
   width: 100%;
   display: flex;
   align-items: center;
+  height: 20dvh;
 }
 #nav_bar .username {
   display: inline;
@@ -94,7 +95,7 @@ a:focus:hover {
   width: -moz-fit-content;
   width: fit-content;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   #nav_bar nav {
     display: grid;
     gap: 0.25rem;
@@ -349,4 +350,47 @@ a:focus:hover {
   height: 1.5rem;
   width: 100%;
   padding: 0 8px;
+}
+
+.reset_pass {
+  margin: 2rem auto;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.reset_pass h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+.reset_pass form {
+  display: grid;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: lightgrey;
+}
+.reset_pass form p {
+  display: grid;
+}
+.reset_pass form p label {
+  font-weight: 600;
+}
+.reset_pass form p input {
+  padding: 8px;
+}
+.reset_pass form p input#submit {
+  font-size: 14px;
+}
+
+.index {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr) 100px;
+  height: 70dvh;
+}
+.index .work_links {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  grid-column: 3;
+  grid-row: 4;
 }/*# sourceMappingURL=styles.css.map */

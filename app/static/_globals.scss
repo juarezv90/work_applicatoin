@@ -21,6 +21,7 @@ a:focus {
   width: 100%;
   display: flex;
   align-items: center;
+  height: 20dvh;
 
   .username {
     display: inline;
@@ -34,7 +35,7 @@ a:focus {
     display: inline;
     width: fit-content;
 
-    @media screen and (max-width:600px) {
+    @media screen and (max-width:650px) {
       display: grid;
       gap: .25rem;
     }

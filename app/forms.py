@@ -50,5 +50,5 @@ class ReportIssueForm(FlaskForm):
 class ResetPass(FlaskForm):
     old_pass = PasswordField('Current Password', validators=[DataRequired()])
     password = PasswordField('New Password', validators=[DataRequired()])
-    password2 = PasswordField('Repeat Password', validators=[DataRequired(),EqualTo('password')])
+    password2 = PasswordField('Repeat New Password', validators=[DataRequired(),EqualTo('password')])
     submit = SubmitField('Change Password')

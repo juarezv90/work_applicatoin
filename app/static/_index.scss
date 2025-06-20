@@ -1,0 +1,14 @@
+.index {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr) 100px;
+    height: 70dvh;
+
+    .work_links {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        grid-column: 3;
+        grid-row: 4;
+    }
+}

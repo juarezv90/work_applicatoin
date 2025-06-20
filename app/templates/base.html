@@ -18,7 +18,13 @@
   <body>
     <div id="nav_bar">
       {% if current_user %}
-      <span class="username">{{ current_user.username }}</span>
+      <span class="username"
+        ><span
+          style="font-weight: 300; letter-spacing: -4px; margin-right: 10px"
+          >Welcome,</span
+        >
+        {{ current_user.first_name }}</span
+      >
       {% endif %}
       <nav>
         <span style="margin-right: 10px"> Site Links: </span>
@@ -27,7 +33,9 @@
         <a href="{{ url_for('login') }}">Login</a>
         {% else %}
         <a href="{{ url_for('employee_listing' ) }}">Employees</a>
-        <a href="{{ url_for('reset_pass', userid=current_user.id ) }}">Reset Password</a>
+        <a href="{{ url_for('reset_pass', userid=current_user.id ) }}"
+          >Reset Password</a
+        >
         <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
       </nav>
