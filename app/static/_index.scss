@@ -1,14 +1,49 @@
+$back-color: #f0f0f0;
 .index {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3,1fr) 100px;
-    height: 70dvh;
-
-    .work_links {
+    grid-template-columns: 175px repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr) 100px;
+    gap: 8px;
+    height: 85dvh;
+    
+    .work_links {        
         display: flex;
         flex-direction: column;
-        padding: 1rem;
-        grid-column: 3;
-        grid-row: 4;
+        grid-column: 1;
+        grid-row: 1/ span 6;
+        gap: 8px;
+        background-color: $back-color;
+
+        .link_title {
+            background-color: gray;
+            padding: .5rem;
+            font-size: 1.2rem;
+        }
+
+        a {
+            margin-left: .5rem;
+        }
     }
+
+    .current_emp {
+        display: flex;
+        flex-direction: column;
+        grid-column: 2 /span 3;
+        grid-row: 1 / span 1;
+        background-color: $back-color;
+        overflow: hidden;
+
+        h6 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            background-color: grey;
+            padding: .5rem;
+        }
+
+        .employee {
+            margin-left: 1rem;
+        }
+    }
+
+
 }

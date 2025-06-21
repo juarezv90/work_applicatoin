@@ -23,7 +23,8 @@ def role_required(role_name):
 @app.route('/index')
 @login_required
 def index():
-    return render_template('index.html', title='Home Page')
+    act_empl = Employee.query.where(Employee.emp_active == True).all()
+    return render_template('index.html', title='Home Page', actives=act_empl)
 
 @app.route('/login', methods=['GET','POST'])
 def login():

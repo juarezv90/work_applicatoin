@@ -3,9 +3,18 @@
 {% block content %}
     <div class="index">
         <div class="work_links">
-            <span>Work Links:</span>
-            <a href="{{ url_for('register' ) }}">Register New User</a>
+            <span class="link_title">Work Links:</span>
+            <a href="{{ url_for('register' ) }}">Register User</a>
             <a href="{{ url_for('employee_listing' ) }}">Employees</a>
+            <a href="{{ url_for('reset_pass', userid=current_user.get_id() ) }}">Reset Password</a>
+        </div>
+        <div class="current_emp">
+            <h6>Current Employees</h6>
+            {% for emp in actives %}
+               <div class="employee">
+                   {{ emp.first_name }} {{ emp.last_name }}
+               </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

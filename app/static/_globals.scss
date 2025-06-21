@@ -9,7 +9,6 @@ a:visited,
 a:focus {
   color: black;
   text-decoration: none;
-  margin-right: 1rem;
   font-weight: 500;
 
   &:hover {
@@ -21,7 +20,7 @@ a:focus {
   width: 100%;
   display: flex;
   align-items: center;
-  height: 20dvh;
+  height: 10dvh;
 
   .username {
     display: inline;
@@ -32,8 +31,9 @@ a:focus {
   }
 
   nav {
-    display: inline;
+    display: flex;
     width: fit-content;
+    gap: .5rem;
 
     @media screen and (max-width:650px) {
       display: grid;

@@ -67,7 +67,6 @@ a:visited,
 a:focus {
   color: black;
   text-decoration: none;
-  margin-right: 1rem;
   font-weight: 500;
 }
 a:hover,
@@ -81,7 +80,7 @@ a:focus:hover {
   width: 100%;
   display: flex;
   align-items: center;
-  height: 20dvh;
+  height: 10dvh;
 }
 #nav_bar .username {
   display: inline;
@@ -91,9 +90,10 @@ a:focus:hover {
   margin-right: auto;
 }
 #nav_bar nav {
-  display: inline;
+  display: flex;
   width: -moz-fit-content;
   width: fit-content;
+  gap: 0.5rem;
 }
 @media screen and (max-width: 650px) {
   #nav_bar nav {
@@ -312,7 +312,8 @@ a:focus:hover {
   width: -moz-fit-content;
   width: fit-content;
   gap: 1rem;
-  border: 1px solid black;
+  background-color: lightgray;
+  border: 1px solid darkgrey;
   padding: 1rem;
 }
 .register_user form input {
@@ -383,14 +384,41 @@ a:focus:hover {
 
 .index {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr) 100px;
-  height: 70dvh;
+  grid-template-columns: 175px repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr) 100px;
+  gap: 8px;
+  height: 85dvh;
 }
 .index .work_links {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  grid-column: 3;
-  grid-row: 4;
+  grid-column: 1;
+  grid-row: 1/span 6;
+  gap: 8px;
+  background-color: #f0f0f0;
+}
+.index .work_links .link_title {
+  background-color: gray;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+.index .work_links a {
+  margin-left: 0.5rem;
+}
+.index .current_emp {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2/span 3;
+  grid-row: 1/span 1;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+.index .current_emp h6 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  background-color: grey;
+  padding: 0.5rem;
+}
+.index .current_emp .employee {
+  margin-left: 1rem;
 }/*# sourceMappingURL=styles.css.map */
