@@ -234,6 +234,7 @@ a:focus:hover {
 }
 .report .rec_links {
   display: flex;
+  gap: 8px;
   grid-column: 1/span 4;
   padding: 0.5rem 0;
 }

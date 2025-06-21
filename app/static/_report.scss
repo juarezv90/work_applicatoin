@@ -21,6 +21,7 @@
 
     .rec_links {
         display: flex;
+        gap: 8px;
         grid-column: 1 / span 4;
         padding: .5rem 0;
     }
